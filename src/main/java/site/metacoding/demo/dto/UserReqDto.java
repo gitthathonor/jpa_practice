@@ -17,4 +17,15 @@ public class UserReqDto {
             return User.builder().username(username).password(password).email(email).build();
         }
     }
+
+    @Setter
+    @Getter
+    public static class LoginReqDto {
+        private String username;
+        private String password;
+
+        public User toEntity() {
+            return User.builder().username(username).password(password).build();
+        }
+    }
 }
