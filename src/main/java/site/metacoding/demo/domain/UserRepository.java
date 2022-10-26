@@ -1,12 +1,8 @@
 package site.metacoding.demo.domain;
 
-import java.util.Optional;
-
 import javax.persistence.EntityManager;
 
 import org.springframework.stereotype.Repository;
-
-import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,6 +27,12 @@ public class UserRepository {
                 .setParameter("username", username)
                 .getSingleResult();
         return userPS;
+    }
+
+    public void deleteById(Long id) {
+        em.createQuery("delete from User u where u.id = :id")
+                .setParameter("id", id)
+                .executeUpdate();
     }
 
 }

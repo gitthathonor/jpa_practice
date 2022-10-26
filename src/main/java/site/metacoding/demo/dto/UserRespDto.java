@@ -22,4 +22,20 @@ public class UserRespDto {
         }
 
     }
+
+    @Setter
+    @Getter
+    public static class UpdateRespDto {
+        private Long id;
+        private String password;
+        private String email;
+
+        @Builder
+        public UpdateRespDto(User user) {
+            this.id = user.getId();
+            this.password = user.getPassword();
+            this.email = user.getEmail();
+        }
+
+    }
 }

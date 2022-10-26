@@ -28,4 +28,16 @@ public class UserReqDto {
             return User.builder().username(username).password(password).build();
         }
     }
+
+    @Setter
+    @Getter
+    public static class UpdateReqDto {
+        private String password;
+        private String email;
+        private Long id; // 서비스 로직
+
+        public User toEntity() {
+            return User.builder().password(password).email(email).id(id).build();
+        }
+    }
 }

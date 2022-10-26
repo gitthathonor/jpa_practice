@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import site.metacoding.demo.dto.UserReqDto.UpdateReqDto;
 
 @NoArgsConstructor
 @Getter
@@ -31,4 +32,8 @@ public class User {
         this.email = email;
     }
 
+    public void update(UpdateReqDto updateReqDto) {
+        this.password = updateReqDto.getPassword();
+        this.email = updateReqDto.getEmail();
+    }
 }
